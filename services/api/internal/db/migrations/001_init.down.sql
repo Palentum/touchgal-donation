@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS audit_logs;
+DROP TABLE IF EXISTS payment_events;
+DROP TABLE IF EXISTS donations;
+DROP TABLE IF EXISTS payment_methods;
+DROP TABLE IF EXISTS donation_tiers;
+DROP TABLE IF EXISTS app_settings;
+DROP TABLE IF EXISTS admin_sessions;
+DROP TABLE IF EXISTS admins;
+DROP EXTENSION IF EXISTS pgcrypto;

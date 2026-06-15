@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
+  --font-sans: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+  --color-rice: #f7f1e4;
+  --color-ink: #16211c;
+  --color-ink-soft: #33443b;
+  --color-jade: #0f6f5c;
+  --color-jade-deep: #0a453c;
+  --color-cinnabar: #e45335;
+  --color-saffron: #e7b45b;
+}
+
+:root {
+  color-scheme: light;
+  --page-radial: radial-gradient(circle at 12% 12%, rgba(228, 83, 53, 0.18), transparent 30%), radial-gradient(circle at 86% 4%, rgba(15, 111, 92, 0.2), transparent 28%), linear-gradient(135deg, #fbf7ee 0%, #efe4d1 48%, #f7f1e4 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #f7f1e4;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--page-radial);
+  color: #16211c;
+  font-family: var(--font-sans);
+  text-rendering: geometricPrecision;
+}
+
+body::before {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  content: "";
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #e45335;
+  color: #fff7ec;
+}
+
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinnabar focus-visible:ring-offset-2 focus-visible:ring-offset-rice;
+}
+
+.paper-panel {
+  @apply border border-ink/10 bg-rice/80 shadow-[0_24px_80px_rgba(22,33,28,0.12)] backdrop-blur-xl;
+}
+
+.admin-field {
+  @apply w-full rounded-2xl border border-ink/10 bg-white/80 px-4 py-3 text-sm text-ink shadow-inner shadow-black/5 outline-none transition focus:border-jade focus:ring-2 focus:ring-jade/20;
+}
+
+.admin-label {
+  @apply text-xs font-black uppercase tracking-[0.22em] text-ink/50;
+}
+
+.ink-link {
+  @apply text-jade underline decoration-jade/30 underline-offset-4 transition hover:text-cinnabar hover:decoration-cinnabar/50;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
