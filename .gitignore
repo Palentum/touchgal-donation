@@ -14,3 +14,7 @@ apps/web/node_modules/.cache/
 
 # OS files
 .DS_Store
+
+# Local agent docs (LOCAL ONLY — never push)
+CLAUDE.md
+AGENTS.md
